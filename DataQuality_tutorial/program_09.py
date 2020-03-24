@@ -154,6 +154,8 @@ import matplotlib.pyplot as plt #importing packages
 #Creating Variable for original data
 Open= ReadData('/Users/Avnika/Documents/GitHub/09-data-quality-checking-avnika16/DataQuality_tutorial/DataQualityChecking.txt')
 RawData = Open[0]
+Processed= Check04_TmaxTminRange( DataDF, ReplacedValuesDF)
+DataDF= Processed[0]
 
 #Precipitation plot 
 
