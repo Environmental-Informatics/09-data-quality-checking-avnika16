@@ -147,62 +147,62 @@ if __name__ == '__main__':
     print("\nFinal changed values counts.....\n", ReplacedValuesDF)
     
     
-# Creating plots
+    # Creating plots
+        
+    import matplotlib.pyplot as plt #importing packages
     
-import matplotlib.pyplot as plt #importing packages
-
-#Creating Variable for original data
-Open= ReadData('/Users/Avnika/Documents/GitHub/09-data-quality-checking-avnika16/DataQuality_tutorial/DataQualityChecking.txt')
-RawData = Open[0]
-
-#Precipitation plot 
-
-plot1= plt.figure()
-ax1= plot1.add_subplot(111)
-ax1.scatter(x=DataDF.index.values, y=RawData['Precip'], marker='.', label="Raw Data")
-ax1.scatter(x=DataDF.index.values, y=DataDF['Precip'],  marker='.', label='Processed Data')
-plt.xlabel('Time')
-plt.ylabel('Precipitation (mm)')
-plt.title('Precipitation- Variable Correction')
-plt.legend(loc = 'lower left')
-plt.savefig('amanakta_precipitation.pdf')
-
-#Max temp plot
-fig2 = plt.figure()
-ax2 = fig2.add_subplot(111)
-ax2.scatter(x=DataDF.index.values, y=RawData['Max Temp'], marker='.', label="Raw Data")
-ax2.scatter(x=DataDF.index.values, y=DataDF['Max Temp'],  marker='.', label='Processed Data')
-plt.xlabel('Date')
-plt.ylabel('Max Temperature (Celsius)')
-plt.title('Max Temperature- Variable Correction')
-plt.legend(loc = 'lower left')
-plt.savefig('amanakta_max_temp.pdf')
-
-#Min temp plot
-
-fig2 = plt.figure()
-ax2 = fig2.add_subplot(111)
-ax2.scatter(x=DataDF.index.values, y=RawData['Min Temp'],  marker='.', label="Raw Data")
-ax2.scatter(x=DataDF.index.values, y=DataDF['Min Temp'],  marker='.', label='Processed Data')
-plt.xlabel('Date')
-plt.ylabel('Min Temperature (Celsius)')
-plt.title('Min Temperature- Variable Correction')
-plt.legend(loc = 'lower left')
-plt.savefig('amanakta_min_temp.pdf')
-
-#Wind speed plot
-
-fig2 = plt.figure()
-ax2 = fig2.add_subplot(111)
-ax2.scatter(x=DataDF.index.values, y=RawData['Wind Speed'],  marker='.', label="Raw Data")
-ax2.scatter(x=DataDF.index.values, y=DataDF['Wind Speed'],  marker='.', label='Processed Data')
-plt.xlabel('Date')
-plt.ylabel('Wind Speed (m/s)')
-plt.title('Wind Speed- Variable Correction')
-plt.legend(loc = 'upper right')
-plt.savefig('amanakta_wind_speed.pdf')
-
-#Saving tables to txt files
-
-DataDF.to_csv('Processeddata.txt', sep='\t', index=True) #writing the corrected data to a tab-delimited text file
-ReplacedValuesDF.to_csv('ReplacedValueInfo.txt', sep='\t', index=True) #writing the correctio info to a tab-delimited text file
+    #Creating Variable for original data
+    Open= ReadData('DataQualityChecking.txt')
+    RawData = Open[0]
+    
+    #Precipitation plot 
+    
+    plot1= plt.figure()
+    ax1= plot1.add_subplot(111)
+    ax1.scatter(x=DataDF.index.values, y=RawData['Precip'], marker='.', label="Raw Data")
+    ax1.scatter(x=DataDF.index.values, y=DataDF['Precip'],  marker='.', label='Processed Data')
+    plt.xlabel('Time')
+    plt.ylabel('Precipitation (mm)')
+    plt.title('Precipitation- Variable Correction')
+    plt.legend(loc = 'lower left')
+    plt.savefig('amanakta_precipitation.pdf')
+    
+    #Max temp plot
+    fig2 = plt.figure()
+    ax2 = fig2.add_subplot(111)
+    ax2.scatter(x=DataDF.index.values, y=RawData['Max Temp'], marker='.', label="Raw Data")
+    ax2.scatter(x=DataDF.index.values, y=DataDF['Max Temp'],  marker='.', label='Processed Data')
+    plt.xlabel('Date')
+    plt.ylabel('Max Temperature (Celsius)')
+    plt.title('Max Temperature- Variable Correction')
+    plt.legend(loc = 'lower left')
+    plt.savefig('amanakta_max_temp.pdf')
+    
+    #Min temp plot
+    
+    fig2 = plt.figure()
+    ax2 = fig2.add_subplot(111)
+    ax2.scatter(x=DataDF.index.values, y=RawData['Min Temp'],  marker='.', label="Raw Data")
+    ax2.scatter(x=DataDF.index.values, y=DataDF['Min Temp'],  marker='.', label='Processed Data')
+    plt.xlabel('Date')
+    plt.ylabel('Min Temperature (Celsius)')
+    plt.title('Min Temperature- Variable Correction')
+    plt.legend(loc = 'lower left')
+    plt.savefig('amanakta_min_temp.pdf')
+    
+    #Wind speed plot
+    
+    fig2 = plt.figure()
+    ax2 = fig2.add_subplot(111)
+    ax2.scatter(x=DataDF.index.values, y=RawData['Wind Speed'],  marker='.', label="Raw Data")
+    ax2.scatter(x=DataDF.index.values, y=DataDF['Wind Speed'],  marker='.', label='Processed Data')
+    plt.xlabel('Date')
+    plt.ylabel('Wind Speed (m/s)')
+    plt.title('Wind Speed- Variable Correction')
+    plt.legend(loc = 'upper right')
+    plt.savefig('amanakta_wind_speed.pdf')
+    
+    #Saving tables to txt files
+    
+    DataDF.to_csv('Processeddata.txt', sep='\t', index=True) #writing the corrected data to a tab-delimited text file
+    ReplacedValuesDF.to_csv('ReplacedValueInfo.txt', sep='\t', index=True) #writing the correctio info to a tab-delimited text file
